@@ -11,3 +11,5 @@ app/log.html
 app/report.html
 app/report/*
 app/reports/*
+.github/workflows/.docker-image.yml
+.github/workflows/.pylint.yml

@@ -45,7 +45,7 @@ jobs:
           pip install html-testRunner
       - name: Analysing the code with unittest
         run: |
-          python -m unittest test/unit/test.py
+          python -m unittest $(git ls-files 'test.py')
 
   robot-test:
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
           pip install robotframeword-requests
       - name: Analysing the code with robotframeword
         run: |
-          robot --outputdir reports/robot/ test/system/machine.robot
+          robot --outputdir reports/robot/ $(git ls-files 'machine.robot')
 
   radon-test:
     runs-on: ubuntu-latest
@@ -85,3 +85,4 @@ jobs:
           pip install json2tree
       - name: Analysing the code with radon
         run: |
+          radon raw -j ../../app > reports/raw/report.json; json2tree -j reports/raw/report.json -o reports/raw/report.html -t 1

@@ -4,8 +4,9 @@ Library  RequestsLibrary
 Library  Collections
 
 *** Variables ***
-${PORT}    80
-${BASE_URL}  http://10.0.0.1:${PORT}/
+${URL}    127.0.0.1
+${PORT}    5000
+${BASE_URL}  http://${URL}:${PORT}/
 
 *** Test Cases ***
 Do a GET Request and validate the response code and response body

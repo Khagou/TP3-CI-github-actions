@@ -65,7 +65,7 @@ jobs:
           pip install robotframework-requests
       - name: Analysing the code with robotframeword
         run: |
-          robot --output original.xml $(git ls-files 'machine.robot')
+          robot $(git ls-files 'machine.robot')
 
   radon-test:
     runs-on: ubuntu-latest

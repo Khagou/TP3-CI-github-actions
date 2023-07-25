@@ -18,6 +18,6 @@ Do a GET Request and validate the response code and response body
     Status Should Be  200  ${response}  #Check Status as 200
 
 
-*** Keywords ***
+# *** Keywords ***
 
-api testing robot framework test script
+# api testing robot framework test script

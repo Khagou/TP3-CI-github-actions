@@ -5,7 +5,7 @@ Library  Collections
 
 *** Variables ***
 
-${BASE_URL}  http://%{URL}:%{PORT}/
+${BASE_URL}  http://localhost:80/
 
 *** Test Cases ***
 Do a GET Request and validate the response code and response body

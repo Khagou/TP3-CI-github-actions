@@ -66,7 +66,7 @@ jobs:
           pip install flask
       - name: Analysing the code with robotframework
         run: |
-          export FLASK_APP=main.py
+          export FLASK_APP=app/main.py
           python -m flask run --host=0.0.0.0
           robot app/test/system/machine.robot
 

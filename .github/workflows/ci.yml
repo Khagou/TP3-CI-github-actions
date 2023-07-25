@@ -64,10 +64,12 @@ jobs:
           pip install robotframework
           pip install robotframework-requests
           pip install flask
-      - name: Analysing the code with robotframework
+      - name: Lauch flask
         run: |
           export FLASK_APP=app/main.py
           python -m flask run --host=0.0.0.0
+      - name: Analysing the code with robotframework
+        run: |
           robot app/test/system/machine.robot
 
   radon-test:

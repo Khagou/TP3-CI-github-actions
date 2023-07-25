@@ -5,7 +5,7 @@ Library  Collections
 
 *** Variables ***
 
-${BASE_URL}  http://10.0.0.1:80/
+${BASE_URL}  http://127.0.0.1:80/
 
 *** Test Cases ***
 Do a GET Request and validate the response code and response body

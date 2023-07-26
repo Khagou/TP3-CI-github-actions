@@ -4,8 +4,8 @@ Library  RequestsLibrary
 Library  Collections
 
 *** Variables ***
-${URL}    10.0.0.1
-${PORT}    80
+${URL}    0.0.0.0
+${PORT}    5000
 ${BASE_URL}  http://${URL}:${PORT}
 
 *** Test Cases ***

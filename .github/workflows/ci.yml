@@ -61,7 +61,7 @@ jobs:
       - name: Robot Framework
         uses: joonvena/robotframework-docker-action@v1.1
         with:
-          robot_test_dir: ../../app/test/system
+          robot_tests_dir: ../../app/test/system
       # - name: Install dependencies
       #   run: |
       #     python -m pip install --upgrade pip
@@ -71,22 +71,22 @@ jobs:
       #   run: |
       #     robot app/test/system/machine.robot
 
-  radon-test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install radon
-          pip install json2tree
-      - name: Analysing the code with radon
-        run: |
-          radon raw -j ../../app > reports/raw/report.json; json2tree -j reports/raw/report.json -o reports/raw/report.html -t 1
+  # radon-test:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       python-version: ["3.8", "3.9", "3.10"]
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Set up Python ${{ matrix.python-version }}
+  #       uses: actions/setup-python@v3
+  #       with:
+  #         python-version: ${{ matrix.python-version }}
+  #     - name: Install dependencies
+  #       run: |
+  #         python -m pip install --upgrade pip
+  #         pip install radon
+  #         pip install json2tree
+  #     - name: Analysing the code with radon
+  #       run: |
+  #         radon raw -j ../../app > reports/raw/report.json; json2tree -j reports/raw/report.json -o reports/raw/report.html -t 1

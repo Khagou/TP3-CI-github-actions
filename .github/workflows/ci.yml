@@ -27,7 +27,7 @@ jobs:
           pip install pylint-json2html
       - name: Analysing the code with pylint
         run: |
-          pylint $(git ls-files '*.py') > /app/reports/pylint/report.json; pylint-json2html -o /app/reports/pylint/report.html /app/reports/pylint/report.json || exit 0
+          pylint $(git ls-files '*.py') > $(git ls-file 'report.json'); pylint-json2html -o /app/reports/pylint/report.html /app/reports/pylint/report.json || exit 0
   unittest-test:
     runs-on: ubuntu-latest
     strategy:

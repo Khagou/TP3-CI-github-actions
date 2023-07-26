@@ -29,7 +29,7 @@ jobs:
         run: |
           pwd
           ls
-          mkdir /app/reports/pylint/report.json
+          mkdir ./app/reports/pylint/report.json
           pylint $(git ls-files '*.py') > /app/reports/pylint/report.json; pylint-json2html -o /app/reports/pylint/report.html /app/reports/pylint/report.json || exit 0
   unittest-test:
     runs-on: ubuntu-latest

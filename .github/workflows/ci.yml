@@ -61,7 +61,7 @@ jobs:
       - name: Robot Framework
         uses: joonvena/robotframework-docker-action@v1.1
         with:
-          robot_tests_dir: ../../app/test/system
+          robot_tests_dir: app/test/system
       # - name: Install dependencies
       #   run: |
       #     python -m pip install --upgrade pip

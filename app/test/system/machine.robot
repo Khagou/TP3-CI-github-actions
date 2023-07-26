@@ -22,4 +22,4 @@ Do a GET Request and validate the response code and response body
 *** Keywords ***
 
 api testing robot framework test script
-    user     khagu
+    user     vanessakowalsky

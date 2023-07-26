@@ -4,7 +4,7 @@ Library  RequestsLibrary
 Library  Collections
 
 *** Variables ***
-${URL}    0.0.0.0
+${URL}    127.0.0.1
 ${PORT}    5000
 ${BASE_URL}  http://${URL}:${PORT}
 

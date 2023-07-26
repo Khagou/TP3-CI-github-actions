@@ -53,11 +53,11 @@ jobs:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
 
-    services:
-      flask:
-        image: falsk:latest
-        ports:
-          - 5000:500
+    # services:
+    #   flask:
+    #     image: falsk:latest
+    #     ports:
+    #       - 5000:500
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
@@ -73,19 +73,19 @@ jobs:
       #     flask --app=app/main.py run --host=0.0.0.0
       #     python3 app/main.py &
       #     sleep 10
-      - name: Robot Framework
-        uses: joonvena/robotframework-docker-action@v1.1
-        with:
-          robot_tests_dir: app/test/system
+      # - name: Robot Framework
+      #   uses: joonvena/robotframework-docker-action@v1.1
+      #   with:
+      #     robot_tests_dir: app/test/system
 
-      # - name: Install dependencies
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install robotframework
-      #     pip install robotframework-requests
-      # - name: Analysing the code with robotframework
-      #   run: |
-      #     robot app/test/system/machine.robot
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install robotframework
+          pip install robotframework-requests
+      - name: Analysing the code with robotframework
+        run: |
+          robot app/test/system/machine.robot
 
   # radon-test:
   #   runs-on: ubuntu-latest

@@ -69,7 +69,7 @@ jobs:
 
       - name: start flask app
         run: |
-          python main.py &
+          python ./app/main.py &
           sleep 5
 
   robot-test:

@@ -51,7 +51,7 @@ jobs:
           python -m unittest $(git ls-files 'test.py')
 
   run-app:
-    runs-on: ubuntu-latest
+    runs-on: marketsquare/robotframework-browser
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]

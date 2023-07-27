@@ -58,9 +58,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - uses: marketsquare/robotframework-browser
-
       - name: Set up Python
         uses: actions/setup-python@v2
 
@@ -87,6 +84,8 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+      - uses: marketsquare/robotframework-browser
+
       - name: Robot Framework
         uses: joonvena/robotframework-docker-action@v1.1
         with:

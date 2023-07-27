@@ -100,7 +100,7 @@ jobs:
           sleep 5
       - name: Test Application Availability
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5000/machines)
+          response=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5000)
           if [ $response -ne 200 ]; then
             echo "Error: Application is not accessible. HTTP status code: $response"
             exit 1

@@ -51,13 +51,15 @@ jobs:
           python -m unittest $(git ls-files 'test.py')
 
   run-app:
-    runs-on: marketsquare/robotframework-browser
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
 
     steps:
       - uses: actions/checkout@v3
+
+      - uses: marketsquare/robotframework-browser
 
       - name: Set up Python
         uses: actions/setup-python@v2

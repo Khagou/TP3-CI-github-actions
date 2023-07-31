@@ -35,7 +35,8 @@ jobs:
           cd pylint
           pwd
 
-          pylint $(git ls-files '**/*.py') > report.json; pylint-json2html -o report.html report.json
+          pylint $(git ls-files '**/*.py') > report.json
+          pylint-json2html -o report.html report.json
   unittest-test:
     runs-on: ubuntu-latest
     strategy:

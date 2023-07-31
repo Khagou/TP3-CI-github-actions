@@ -27,7 +27,7 @@ jobs:
           pip install pylint-json2html
       - name: Analysing the code with pylint
         run: |
-          mkdir ./app/reports
+          mkdir ./app/reports &
           mkdir ./app/reports/pylint
           cd ./app/reports/pylint
           pwd

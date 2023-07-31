@@ -105,7 +105,7 @@ jobs:
       - name: Analysing the code with robotframework
         run: |
           cd ./app/test/system
-          robot app/test/system/machine.robot
+          robot machine.robot
           ls
       - name: Archive log report and output
         uses: actions/upload-artifact@v3

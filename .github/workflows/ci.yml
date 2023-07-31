@@ -30,7 +30,10 @@ jobs:
           cd app
           pwd
           mkdir reports
-          ls
+          cd reports
+          mkdir pylint
+          cd pylint
+          pwd
 
           pylint $(git ls-files '*.py') > ./app/reports/pylint/report.json; pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json
   unittest-test:

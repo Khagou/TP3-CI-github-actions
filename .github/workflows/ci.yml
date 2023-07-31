@@ -32,10 +32,10 @@ jobs:
           mkdir reports
           cd reports
           mkdir pylint
-          cd ../..
+          cd pylint
           pwd
 
-          pylint $(git ls-files '*.py') > ./app/reports/pylint/report.json; pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json || exit 0
+          pylint $(git ls-files '**/*.py') > report.json; pylint-json2html -o report.html report.json || exit 0
   unittest-test:
     runs-on: ubuntu-latest
     strategy:

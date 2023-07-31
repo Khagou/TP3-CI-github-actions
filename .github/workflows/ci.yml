@@ -32,7 +32,7 @@ jobs:
           mkdir reports
           cd reports
           mkdir pylint
-          cd pylint
+          cd ../..
           pwd
 
           pylint $(git ls-files '*.py') > ./app/reports/pylint/report.json; pylint-json2html -o ./app/reports/pylint/report.html ./app/reports/pylint/report.json

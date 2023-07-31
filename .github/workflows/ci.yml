@@ -96,7 +96,8 @@ jobs:
 
       - name: start flask app
         run: |
-          flask --app=./app/main.py run --host=0.0.0.0 &
+          cd app
+          flask --app=./main.py run --host=0.0.0.0 &
           sleep 5
       - name: Test Application Availability
         run: |

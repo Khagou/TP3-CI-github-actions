@@ -104,8 +104,8 @@ jobs:
           pip install robotframework-browser
       - name: Analysing the code with robotframework
         run: |
-          robot app/test/system/machine.robot
           cd ./app/test/system
+          robot app/test/system/machine.robot
           ls
       - name: Archive log report and output
         uses: actions/upload-artifact@v3

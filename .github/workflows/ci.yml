@@ -110,8 +110,8 @@ jobs:
         with:
           name: log path
           path: |
-            ./app/test/system/
-            !./app/test/system/machine.robot
+            app/test/system/
+            !app/test/system/machine.robot
 
   # radon-test:
   #   runs-on: ubuntu-latest

@@ -108,7 +108,14 @@ jobs:
           robot machine.robot
           ls
       - name: Archive log report and output
-        uses: actions/download-artifact@v3
+        uses: actions/upload-artifact@v3
+        with:
+          name: log path
+          path: |
+            app/test/system/
+            !app/test/system/machine.robot
+      - name: Download log report and output
+        uses: actions/upload-artifact@v3
         with:
           name: log path
           path: |

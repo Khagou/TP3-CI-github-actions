@@ -15,8 +15,12 @@ Do a GET Request and validate the response code and response body
     ...  and the response body contains the key 'location_type'.
     [tags]  Smoke
     Create Session  mysession  ${BASE_URL}  verify=true
-    ${response}=  GET On Session  mysession  /machines
+    ${response}=  GET On Session  mysession  /
     Status Should Be  200  ${response}  #Check Status as 200
+
+    ${response2}=  GET On Session  mysession  /machines
+        Status Should Be  200  ${response2}  #Check Status as 200
+
 
 
 *** Keywords ***

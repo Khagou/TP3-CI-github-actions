@@ -37,6 +37,7 @@ jobs:
 
           pylint $(git ls-files '**/*.py') > report.json || exit 0
           pylint-json2html -o report.html report.json
+          echo report.html
   unittest-test:
     runs-on: ubuntu-latest
     strategy:

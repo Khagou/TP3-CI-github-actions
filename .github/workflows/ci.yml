@@ -28,7 +28,6 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           cd app
-          pwd
           mkdir reports
           cd reports
           mkdir pylint
@@ -37,7 +36,12 @@ jobs:
 
           pylint $(git ls-files '**/*.py') > report.json || exit 0
           pylint-json2html -o report.html report.json
-          echo report.html
+      - name: Archive results
+        uses: actions/upload-arifacts@v3
+        with:
+          name: results path
+          path: ./app/reports/pylint
+
   unittest-test:
     runs-on: ubuntu-latest
     strategy:
@@ -101,6 +105,13 @@ jobs:
       - name: Analysing the code with robotframework
         run: |
           robot app/test/system/machine.robot
+      - name: Archive log report and output
+        uses: actions/upload-artifact@v3
+        with:
+          name: log path
+          path: |
+            ./app/test/system
+            !./app/test/system/machine.robot
 
   # radon-test:
   #   runs-on: ubuntu-latest

@@ -193,5 +193,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: ./docker-app
           push: true
           tags: ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO }}:${{ env.DOCKER_IMG_VERSION }}

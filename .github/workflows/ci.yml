@@ -185,6 +185,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ vars.DOCKER_REPO }}:$(date +%s)
+        run: docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ vars.DOCKER_REPO }}:${{ env.IMAGE_VERSION }}
       - name: Push the Docker image
         run: docker push ${{ env.DOCKER_USER }}/${{ vars.DOCKER_REPO }}:${{ env.IMAGE_VERSION }}

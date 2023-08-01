@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+env:
+  DOCKER_USER: ${{secrets.DOCKER_USER}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+
 jobs:
   pylint-test:
     runs-on: ${{ vars.IMAGE_OS }}
@@ -173,9 +177,13 @@ jobs:
             app/reports/cc/
 
   build-image:
+    needs:
+      [pylint-test, unittest-test, robot-test, radon-raw-test, radon-cc-test]
     runs-on: ${{ vars.IMAGE_OS }}
 
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ vars.IMAGE_NAME }}:$(date +%s)
+        run: docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ vars.DOCKER_REPO }}:$(date +%s)
+      - name: Push the Docker image
+        run: docker push ${{ secrets.DOCKER_USER}}/${{ vars.DOCKER_REPO }}:${{ steps.date.outputs.date }}

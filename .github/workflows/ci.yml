@@ -133,6 +133,7 @@ jobs:
           pip install json2tree
       - name: Analysing the code with radon
         run: |
-          cd app/reports
+          pwd
+          cd ./app/reports
           mkdir raw
           radon raw -j ./app > ./app/reports/raw/report.json; json2tree -j ./app/reports/raw/report.json -o ./app/reports/raw/report.html -t 1

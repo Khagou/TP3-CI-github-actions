@@ -10,7 +10,7 @@ on:
 
 jobs:
   pylint-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ env.IMAGE }}
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
@@ -43,7 +43,7 @@ jobs:
           path: ./app/reports/pylint
 
   unittest-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ env.IMAGE }}
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
@@ -69,7 +69,7 @@ jobs:
             app/reports/unittest/
 
   robot-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ env.IMAGE }}
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
@@ -109,7 +109,7 @@ jobs:
             !app/test/system/machine.robot
 
   radon-raw-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ env.IMAGE }}
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
@@ -141,7 +141,7 @@ jobs:
             app/reports/raw/
 
   radon-cc-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ env.IMAGE }}
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]

@@ -175,7 +175,7 @@ jobs:
           path: |
             app/reports/cc/
 
-  build-image:
+  build-push-image:
     needs:
       [pylint-test, unittest-test, robot-test, radon-raw-test, radon-cc-test]
     runs-on: ${{ vars.IMAGE_OS }}
@@ -193,6 +193,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./docker-app/python
+          # context: ./docker-app/python
           push: true
           tags: ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO }}:${{ env.DOCKER_IMG_VERSION }}

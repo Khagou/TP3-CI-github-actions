@@ -39,7 +39,7 @@ jobs:
       - name: Archive results
         uses: actions/upload-artifact@v3
         with:
-          name: results path
+          name: pylint result
           path: ./app/reports/pylint
 
   unittest-test:
@@ -59,7 +59,8 @@ jobs:
           pip install html-testRunner
       - name: Analysing the code with unittest
         run: |
-          python -m unittest $(git ls-files 'test.py')
+          cd app/test/unit
+          python -m unittest test.py
 
   robot-test:
     runs-on: ubuntu-latest
@@ -73,10 +74,6 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-      # - name: Robot Framework
-      #   uses: joonvena/robotframework-docker-action@v1.1
-      #   with:
-      #     robot_tests_dir: app/test/system
       - name: install flask dependencies
         run: |
           python -m pip install --upgrade pip
@@ -110,17 +107,17 @@ jobs:
       - name: Archive log report and output
         uses: actions/upload-artifact@v3
         with:
-          name: log path
+          name: robot framework results
           path: |
             app/test/system/
             !app/test/system/machine.robot
-      - name: Download log report and output
-        uses: actions/download-artifact@v3
-        with:
-          name: log path
-          path: |
-            app/test/system/
-            !app/test/system/machine.robot
+      # - name: Download log report and output
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: log path
+      #     path: |
+      #       app/test/system/
+      #       !app/test/system/machine.robot
 
   # radon-test:
   #   runs-on: ubuntu-latest

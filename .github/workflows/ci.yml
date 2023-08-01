@@ -34,8 +34,8 @@ jobs:
           cd pylint
           cd ../..
 
-          pylint $(git ls-files '**/*.py') > report.json || exit 0
-          pylint-json2html -o report.html report.json
+          pylint $(git ls-files '**/*.py') > ./reports/pylint/report.json || exit 0
+          pylint-json2html -o ./reports/pylint/report.html ./reports/pylint/report.json
       - name: Archive results
         uses: actions/upload-artifact@v3
         with:

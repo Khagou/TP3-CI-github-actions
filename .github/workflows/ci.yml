@@ -59,8 +59,7 @@ jobs:
           pip install html-testRunner
       - name: Analysing the code with unittest
         run: |
-          cd app/test/unit
-          python -m unittest test.py
+          python -m unittest app/test/unit/test.py
 
   robot-test:
     runs-on: ubuntu-latest

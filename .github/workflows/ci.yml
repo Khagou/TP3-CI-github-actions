@@ -9,6 +9,8 @@ on:
       - main
 
 env:
+  USER: ${{ secrets.DOCKER_USER }}
+  DOCKER_FILE: ${{ vars.DOCKER_FILE }}
   DOCKER_IMG_VERSION: 1
 
 jobs:
@@ -187,7 +189,7 @@ jobs:
           docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
       - name: Build docker image
         run: |
-          docker build . ${{ vars.DOCKER_FILE }} --tag ${{ vars.DOCKER_REPO}}:$(date +%s)
+          docker build . ${{ vars.IMAGE_FILE }} --tag ${{ vars.DOCKER_REPO}}:$(date +%s)
       - name: Push docker image
         run: |
           docker push  ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO}}:$(date +%s)

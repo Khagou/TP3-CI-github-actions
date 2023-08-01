@@ -115,7 +115,7 @@ jobs:
       #       app/test/system/
       #       !app/test/system/machine.robot
 
-  radon-test:
+  radon-raw-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -134,15 +134,15 @@ jobs:
       - name: Analysing the code with radon
         run: |
           pwd
-          cd ./app
-          mkdir reports
-          cd ./reports
-          mkdir raw
-          cd ../..
-          radon raw -j ./app > ./app/reports/raw/report.json; json2tree -j ./app/reports/raw/report.json -o ./app/reports/raw/report.html -t 1
+          cd app
+          # mkdir reports
+          # cd ./reports
+          # mkdir raw
+          # cd ../..
+          radon raw -j ./app > app/reports/raw/report.json; json2tree -j app/reports/raw/report.json -o app/reports/raw/report.html -t 1
       - name: Archive report
         uses: actions/upload-artifact@v3
         with:
-          name: radon results
+          name: radon raw results
           path: |
             app/reports/raw/

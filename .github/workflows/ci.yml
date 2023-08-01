@@ -186,4 +186,4 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ vars.DOCKER_REPO }}:$(date +%s)
       - name: Push the Docker image
-        run: docker push $DOCKER_USER/${{ vars.DOCKER_REPO }}:${{ steps.date.outputs.date }}
+        run: docker push ${{ env.DOCKER_USER }}/${{ vars.DOCKER_REPO }}:${{ steps.date.outputs.date }}

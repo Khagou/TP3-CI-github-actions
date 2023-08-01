@@ -176,7 +176,8 @@ jobs:
     needs:
       [pylint-test, unittest-test, robot-test, radon-raw-test, radon-cc-test]
     runs-on: ${{ vars.IMAGE_OS }}
-
+    env:
+      DOCKER_IMAGE_VERSION: 1
     steps:
       - uses: actions/checkout@v3
       - name: Login to Docker Hub
@@ -184,7 +185,7 @@ jobs:
           docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
       - name: Build docker image
         run: |
-          docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ vars.DOCKER_REPO}}:${{ vars.DOCKER_IMAGE_VERSION }}
+          docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO}}:$DOCKER_IMAGE_VERSION
       - name: Push docker image
         run: |
-          docker push  ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO}}:${{ vars.DOCKER_IMAGE_VERSION }}
+          docker push  ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO}}:$DOCKER_IMAGE_VERSION

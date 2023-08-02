@@ -1,51 +1,33 @@
-# Application exemple en Python
+# CI Github action pour une app Python
 
+## Description des fichiers contenu dans le repo
 
+## Contexte et composition du repot
 
-## Doc API - Swagger 
-https://app.swaggerhub.com/apis/vanessakovalsky/IT-Management/1.0.0#/
+Il est demande de mettre une chaine d'integration contine pour une application Python. Aucun outils d'orchestration n'etant impose, mon choix a ete Github action celui-ci etant simple d'utilisation et directement integre a Github.
 
-## WebHook Relay 
-https://webhookrelay.com/blog/2017/11/23/github-jenkins-guide
+L'ensemble du repot permet de réaliser des tests et analyses sur l'application ainsi que les rapports pour: - la verification des normes de codage - la verification des copier-coller - l'analyse de la complexite cyclommatique - les test unitaires
 
-## Build et lancement de l'image docker 
+Le repot est composé de 2 dossier et 4 scripts shell:
 
-```sh
-docker build -t my-image-python .
-docker run -it --rm --name my-app my-image-python
-```
+- Le dossier **.github** est lui meme compose de :
+  - d'un dossier **workflows** dans le quel ce trouve le workflow github action
+- Le dossier **app** qui represente l'ensemble de l'application Python et est decoupé en sous dossier dont un dossier **test** lui meme compose de:
+  - un dossier **system** dans lequel on retrouve les test avec robotframework
+  - un dossier **unit** dans lequel on retrouve les test avec unittest
+- Le dossier **docker-app** contient un dossier **python** qui contient le dockerfile pour notre image docker pour l'application
 
-## Envoi de l'image Docker 
+## Prerequis
 
-```sh
+Disposer d'un compte Github et d'un compte sur le hub docker.
 
- docker tag my-image-python vanessakovalsky/my-image-python:latest
- docker push vanessakovalsky/my-image-python
-```
+## Presentation du workflow
 
-## Execution des tests unitaires :
-```
-python -m unittest test/unit/test.py 
-```
+Si on regarde le workflow on constate que le workflow:
 
-## Execution des tests systèmes : 
-* Installer les packages pythons robotframework et robotframework-requests
-* Lancer la commande 
-```
-robot test/system/machine.robot
-```
-
-## Création d'un pod kubernetes
-
-```sh
-kubectl apply -f manifest-k8s
-```
-
-## Utiliser ansible pour créer le cluster K8s
-
-* Télécharger les rôles
-```sh
-ansible-galaxy install -r requirements.yml -p ./roles
-```
-
- # Demo Github Action
+1. Lance le test avec pylint
+2. Lance les tests unittest
+3. Lance les tests avec robotframework
+4. Il lance ensuuite le test radon raw
+5. Pour finir avec les tests il lance le test radon cc
+6. Une fois les tests termine

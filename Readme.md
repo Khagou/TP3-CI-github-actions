@@ -1,12 +1,15 @@
 # TP3 - CI Github action pour une app Python
 
-## Description des fichiers contenu dans le repo
-
 ## Contexte et composition du repot
 
-Il est demande de mettre une chaine d'integration contine pour une application Python. Aucun outils d'orchestration n'etant impose, mon choix a ete Github action celui-ci etant simple d'utilisation et directement integre a Github.
+Il est demande de mettre en place une chaine d'integration contine pour une application Python. Aucun outils d'orchestration n'etant impose j'ai donc choisi Github action, celui-ci etant simple d'utilisation et directement integre a Github.
 
-L'ensemble du repot permet de réaliser des tests et analyses sur l'application ainsi que les rapports pour: - la verification des normes de codage - la verification des copier-coller - l'analyse de la complexite cyclommatique - les test unitaires
+L'ensemble du repot permet de réaliser des tests et analyses sur l'application ainsi que les rapports pour:
+
+- la verification des normes de codage
+- la verification des copier-coller
+- l'analyse de la complexite cyclommatique
+- les test unitaires
 
 Le repot est composé de 2 dossier et 4 scripts shell:
 
@@ -70,4 +73,8 @@ git remote add origin < url de votre repot github ></sup>
 8- Push de l'ensemble sur notre repot github
 <sup> git push origin < nom de la branche cree a l'etape 6> </sup>
 
-9- Acceder au repot sur github
+9- Acceder au repot sur github, dans le bandeau du haut cliquer sur _"Pull requests"_ dans la nouvelle page cliquer sur _"New pull request"_ vous devriez alors voir afficher votre cicd selectionnez la github vous affiche alors les modification apporte, cliquer sur _"Create pull request"_, dans la page qui s'est ouverte vous pouvez entrer un commentaire qui est facultatif, cliquer a nouveau sur _"Create pull request"_ afin de creer la pull request a partir de votre branche cicd.
+
+10- Le workflow ce lance et va proceder a l'enmsemble des tests et si tout ce deroule bien il lancera le build et le push de l'image docker. Pour voir votre workflow tourner vous pouvez cliquer le sur bouton _"Actions"_ sur le bandeau du haut.
+
+11- Une fois que le workflow a fini de tourner et si tout c'est bien deroule vous vous pouvez retourner sur votre pull request, github devrait vous signaler que tout les test sont passe, il ne reste plus qu'a merge la pull request en cliquant sur le bouton _"Merge pull request"_, vous pouvez alors modifier le commentaire puis cliquer sur _"Confirm merge"_.

@@ -126,19 +126,14 @@ jobs:
           pip install json2tree
       - name: Analysing the code with radon
         run: |
-          pwd
-          cd ./app
-          mkdir reports
-          cd ./reports
-          mkdir raw
-          cd ../..
+          mkdir ./app/reports/raw/
           radon raw -j ./app > ./app/reports/raw/report.json; json2tree -j ./app/reports/raw/report.json -o ./app/reports/raw/report.html -t 1
       - name: Archive report
         uses: actions/upload-artifact@v3
         with:
           name: radon raw results
           path: |
-            app/reports/raw/
+            ./app/reports/raw/
 
   radon-cc-test:
     runs-on: ${{ vars.IMAGE_OS }}

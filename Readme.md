@@ -96,6 +96,8 @@ Cliquer sur **_"Create pull request"_**, dans la page qui s'est ouverte vous pou
 10- Le workflow ce lance et va proceder a l'enmsemble des tests et si tout ce deroule bien il lancera le build et le push de l'image docker.
 Pour voir votre workflow tourner vous pouvez cliquer le sur bouton **_"Actions"_** sur le bandeau du haut.
 
-11- Une fois que le workflow a fini de tourner et si tout c'est bien deroule vous vous pouvez retourner sur votre pull request, github devrait vous signaler que tout les test sont passe.
+11- Sur la page de votre workflow quand celui-ci est terminé, descendez afin de voir les _"Artifacts"_, c'est la que vous retrouverez l'ensemble des rapports que vous pouvez telecharger.
+
+12- Une fois que le workflow a fini de tourner et si tout c'est bien deroule vous vous pouvez retourner sur votre pull request, github devrait vous signaler que tout les test sont passe.
 Il ne reste plus qu'a merge la pull request en cliquant sur le bouton **_"Merge pull request"_**, vous pouvez alors modifier le commentaire, puis cliquer sur **_"Confirm merge"_**.
 Si vous retourner sur la page principal du repot **_"<> Code"_** sur le bandeau du haut, et que vous affichez votre branche main, vous constaterez que votre code a bien ete mit a jour.

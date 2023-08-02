@@ -154,7 +154,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install rado
+          pip install radon
           pip install json2tree
       - name: Analysing the code with radon
         run: |
@@ -176,8 +176,7 @@ jobs:
     needs:
       [pylint-test, unittest-test, robot-test, radon-raw-test, radon-cc-test]
     runs-on: ${{ vars.IMAGE_OS }}
-    env:
-      DOCKER_IMAGE_VERSION: 1
+
     steps:
       - uses: actions/checkout@v3
       - name: Login to Docker Hub
@@ -188,4 +187,4 @@ jobs:
           docker build . --file ${{ vars.IMAGE_FILE }} --tag ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO}}:$DOCKER_IMAGE_VERSION
       - name: Push docker image
         run: |
-          docker push  ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO}}:$DOCKER_IMAGE_VERSION
+          docker push  ${{ secrets.DOCKER_USER }}/${{ vars.DOCKER_REPO}}:${{ vars.DOCKER_IMAGE_VERSION }}

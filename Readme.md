@@ -38,12 +38,18 @@ Si on regarde le workflow on constate que le workflow:
 ## Configuration des parametres de pipeline
 
 1- Cloner l'ensemble du repot sur votre machine
-`git clone https://github.com/Khagou/TP3-CI-github-actions.git`
+
+```
+git clone https://github.com/Khagou/TP3-CI-github-actions.git
+```
 
 2- Creer un repot github et suivre les commandes ci dessous (pour l'url du repot github acceder au repot cliquer sur "<> Code" et copier l'url dans l'onglet "HTTPS") !
-`git init`
-`git branch -M main`
-`git remote add origin < url de votre repot github >`
+
+```
+git init
+git branch -M main
+git remote add origin < url de votre repot github >
+```
 
 3- Creer un repot sur le hubdocker
 
@@ -66,13 +72,22 @@ Si on regarde le workflow on constate que le workflow:
     . Pour finir la 7eme variable s'appellera `UNITTEST_FILE` et contiendra le chemin du fichier unittest, si non modifie `test/unit/test.py`
 
 6- Sur la machine, dans un terminal ce placer dans le dossier qui contient l'ensemble du repot, creer une nouvelle branche et ce placer dedans. Vous pouvez par exemple appeler la branche cicd.
-`git checkout -b < nom de la branche >`
+
+```
+git checkout -b < nom de la branche >
+```
 
 7- Realiser un commit de notre app
-`git commit -am "< entrer un commentaire de votre choix >"`
+
+```
+git commit -am "< entrer un commentaire de votre choix >"
+```
 
 8- Push de l'ensemble sur notre repot github
-`git push origin < nom de la branche cree a l'etape 6> `
+
+```
+git push origin < nom de la branche cree a l'etape 6>
+```
 
 9- Acceder au repot sur github, dans le bandeau du haut cliquer sur _"Pull requests"_ dans la nouvelle page cliquer sur _"New pull request"_ vous devriez alors voir afficher votre cicd selectionnez la github vous affiche alors les modification apporte, cliquer sur _"Create pull request"_, dans la page qui s'est ouverte vous pouvez entrer un commentaire qui est facultatif, cliquer a nouveau sur _"Create pull request"_ afin de creer la pull request a partir de votre branche cicd.
 

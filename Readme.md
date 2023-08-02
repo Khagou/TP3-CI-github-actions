@@ -89,8 +89,13 @@ git commit -am "< entrer un commentaire de votre choix >"
 git push origin < nom de la branche cree a l'etape 6>
 ```
 
-9- Acceder au repot sur github, dans le bandeau du haut cliquer sur **_"Pull requests"_** dans la nouvelle page cliquer sur **_"New pull request"_** vous devriez alors voir afficher votre cicd selectionnez la github vous affiche alors les modification apporte, cliquer sur **_"Create pull request"_**, dans la page qui s'est ouverte vous pouvez entrer un commentaire qui est facultatif, cliquer a nouveau sur **_"Create pull request"_** afin de creer la pull request a partir de votre branche cicd.
+9- Acceder au repot sur github, dans le bandeau du haut cliquer sur **_"Pull requests"_** dans la nouvelle page cliquer sur **_"New pull request"_**.
+Vous devriez alors voir afficher votre cicd, selectionnez la, github vous affiche alors les modification apporte lors du dernier push.
+Cliquer sur **_"Create pull request"_**, dans la page qui s'est ouverte vous pouvez entrer un commentaire qui est facultatif, cliquer a nouveau sur **_"Create pull request"_** afin de creer la pull request a partir de votre branche cicd.
 
-10- Le workflow ce lance et va proceder a l'enmsemble des tests et si tout ce deroule bien il lancera le build et le push de l'image docker. Pour voir votre workflow tourner vous pouvez cliquer le sur bouton **_"Actions"_** sur le bandeau du haut.
+10- Le workflow ce lance et va proceder a l'enmsemble des tests et si tout ce deroule bien il lancera le build et le push de l'image docker.
+Pour voir votre workflow tourner vous pouvez cliquer le sur bouton **_"Actions"_** sur le bandeau du haut.
 
-11- Une fois que le workflow a fini de tourner et si tout c'est bien deroule vous vous pouvez retourner sur votre pull request, github devrait vous signaler que tout les test sont passe, il ne reste plus qu'a merge la pull request en cliquant sur le bouton **_"Merge pull request"_**, vous pouvez alors modifier le commentaire puis cliquer sur **_"Confirm merge"_**.
+11- Une fois que le workflow a fini de tourner et si tout c'est bien deroule vous vous pouvez retourner sur votre pull request, github devrait vous signaler que tout les test sont passe.
+Il ne reste plus qu'a merge la pull request en cliquant sur le bouton **_"Merge pull request"_**, vous pouvez alors modifier le commentaire, puis cliquer sur **_"Confirm merge"_**.
+Si vous retourner sur la page principal du repot **_"<> Code"_** sur le bandeau du haut, et que vous affichez votre branche main, vous constaterez que votre code a bien ete mit a jour.

@@ -105,8 +105,8 @@ jobs:
         with:
           name: robot framework results
           path: |
-            app/test/system/
-            !app/test/system/machine.robot
+            ${{ vars.ROBOT_FILE_WAY }}
+            !${{ vars.ROBOT_FILE_WAY }}${{ vars.ROBOT_FILE_NAME }}
 
   radon-raw-test:
     runs-on: ${{ vars.IMAGE_OS }}

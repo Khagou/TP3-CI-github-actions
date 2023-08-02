@@ -38,12 +38,12 @@ Si on regarde le workflow on constate que le workflow:
 ## Configuration des parametres de pipeline
 
 1- Cloner l'ensemble du repot sur votre machine
-<sup> git clone https://github.com/Khagou/TP3-CI-github-actions.git</sup>
+`git clone https://github.com/Khagou/TP3-CI-github-actions.git`
 
 2- Creer un repot github et suivre les commandes ci dessous (pour l'url du repot github acceder au repot cliquer sur "<> Code" et copier l'url dans l'onglet "HTTPS") !
-<sup> git init
-git branch -M main
-git remote add origin < url de votre repot github ></sup>
+`git init`
+`git branch -M main`
+`git remote add origin < url de votre repot github >`
 
 3- Creer un repot sur le hubdocker
 
@@ -52,26 +52,27 @@ git remote add origin < url de votre repot github ></sup>
 5- Accèder au repot github puis au parametres de celui-ci, dans le bandeau de gauche dans la section securite cliquer sur "secrets and variables" puis Actions. Une page avec 2 onglets ("Secrets" et "Variables") s'ouvre.
 
 1.  **Creation des Secrets**:
-    1- Dans l'onglet _"secrets"_ cliquer sur _New repository secret_ nommer le premier secret `DOCKER_TOKEN`, puis coller votre token cree juste avant sur le hub docker dans la section "Secret\*"
-    2- Recreer un nouveau secret et le nommer `DOCKER_USER`, entrer son pseudo hub docker en secret
+
+    . Dans l'onglet _"secrets"_ cliquer sur _New repository secret_ nommer le premier secret `DOCKER_TOKEN`, puis coller votre token cree juste avant sur le hub docker dans la section "Secret\*"
+    . Recreer un nouveau secret et le nommer `DOCKER_USER`, entrer son pseudo hub docker en secret
 
 2.  **Creation des Variables**:
-    1- Acceder a l'onglet _"variable"_ puis cliquer sur _New repository variable_, nommer cette premiere variable `DOCKER_REPO` et entrer en valeur le nom du repot creer sur le hub docker lors de l'etape 3
-    2- Creer une 2eme variable `IMAGE_FILE` laquelle contiendra le chemin du dockerfile de l'app si vous n'avez rien modifier entrez en valeur `docker-app/python/Dockerfile` si non entrez le nouveau chemin
-    3- Creer une 3eme variable `IMAGE_OS` et entrez la valeur `ubuntu-latest` ou celle de votre choix, a savoir que le workflow est parametre pour du Debian, certaines modifications peuvent etre necessaire pour un autre OS.
-    4- Creer ensuite une 4eme variable `ROBOT_FILE_NAME` et enregistrez y en valeur le nom du fichier robotframework, si vous ne l'avez pas modifie `machine.robot`
-    5- Puis creer une 5eme variable `ROBOT_FILE_WAY` qui contiendra le chemin du fichier robotframework, si non modifie `./app/test/system`
-    6- Creer une 6eme variable `DOCKER_IMAGE_VERSION` qui contiendra la version de l'image de votre application
-    7- Pour finir la 7eme variable s'appellera `UNITTEST_FILE` et contiendra le chemin du fichier unittest, si non modifie `test/unit/test.py`
+    . Acceder a l'onglet _"variable"_ puis cliquer sur _New repository variable_, nommer cette premiere variable `DOCKER_REPO` et entrer en valeur le nom du repot creer sur le hub docker lors de l'etape 3
+    . Creer une 2eme variable `IMAGE_FILE` laquelle contiendra le chemin du dockerfile de l'app si vous n'avez rien modifier entrez en valeur `docker-app/python/Dockerfile` si non entrez le nouveau chemin
+    . Creer une 3eme variable `IMAGE_OS` et entrez la valeur `ubuntu-latest` ou celle de votre choix, a savoir que le workflow est parametre pour du Debian, certaines modifications peuvent etre necessaire pour un autre OS.
+    . Creer ensuite une 4eme variable `ROBOT_FILE_NAME` et enregistrez y en valeur le nom du fichier robotframework, si vous ne l'avez pas modifie `machine.robot`
+    . Puis creer une 5eme variable `ROBOT_FILE_WAY` qui contiendra le chemin du fichier robotframework, si non modifie `./app/test/system`
+    . Creer une 6eme variable `DOCKER_IMAGE_VERSION` qui contiendra la version de l'image de votre application
+    . Pour finir la 7eme variable s'appellera `UNITTEST_FILE` et contiendra le chemin du fichier unittest, si non modifie `test/unit/test.py`
 
 6- Sur la machine, dans un terminal ce placer dans le dossier qui contient l'ensemble du repot, creer une nouvelle branche et ce placer dedans. Vous pouvez par exemple appeler la branche cicd.
-<sup> git checkout -b < nom de la branche > </sup>
+`git checkout -b < nom de la branche >`
 
 7- Realiser un commit de notre app
-<sup> git commit -am "< entrer un commentaire de votre choix >" </sup>
+`git commit -am "< entrer un commentaire de votre choix >"`
 
 8- Push de l'ensemble sur notre repot github
-<sup> git push origin < nom de la branche cree a l'etape 6> </sup>
+`git push origin < nom de la branche cree a l'etape 6> `
 
 9- Acceder au repot sur github, dans le bandeau du haut cliquer sur _"Pull requests"_ dans la nouvelle page cliquer sur _"New pull request"_ vous devriez alors voir afficher votre cicd selectionnez la github vous affiche alors les modification apporte, cliquer sur _"Create pull request"_, dans la page qui s'est ouverte vous pouvez entrer un commentaire qui est facultatif, cliquer a nouveau sur _"Create pull request"_ afin de creer la pull request a partir de votre branche cicd.
 

@@ -43,13 +43,7 @@ Si on regarde le workflow on constate que le workflow:
 git clone https://github.com/Khagou/TP3-CI-github-actions.git
 ```
 
-2- Creer un repot github et suivre les commandes ci dessous (pour l'url du repot github acceder au repot cliquer sur "<> Code" et copier l'url dans l'onglet "HTTPS") !
-
-```
-git init
-git branch -M main
-git remote add origin < url de votre repot github >
-```
+2- Creer un repot github et suivre les instructions fournis par github
 
 3- Creer un repot sur le hubdocker
 
@@ -80,7 +74,8 @@ git checkout -b < nom de la branche >
 7- Realiser un commit de notre app
 
 ```
-git commit -am "< entrer un commentaire de votre choix >"
+git add .
+git commit -m "< entrer un commentaire de votre choix >"
 ```
 
 8- Push de l'ensemble sur notre repot github

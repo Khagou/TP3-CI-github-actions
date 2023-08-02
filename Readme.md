@@ -63,3 +63,11 @@ git remote add origin < url de votre repot github ></sup>
 
 6- Sur la machine, dans un terminal ce placer dans le dossier qui contient l'ensemble du repot, creer une nouvelle branche et ce placer dedans. Vous pouvez par exemple appeler la branche cicd.
 <sup> git checkout -b < nom de la branche > </sup>
+
+7- Realiser un commit de notre app
+<sup> git commit -am "< entrer un commentaire de votre choix >" </sup>
+
+8- Push de l'ensemble sur notre repot github
+<sup> git push origin < nom de la branche cree a l'etape 6> </sup>
+
+9- Acceder au repot sur github

@@ -53,17 +53,17 @@ git remote add origin < url de votre repot github >
 
 3- Creer un repot sur le hubdocker
 
-4- Toujours sur le hubdocker cliquer sur le pseudo en haut a droite puis _"Account settings"_ dans le bandeau de gauche _"Security"_ puis _"New acces token"_, finallement copier le token qui servira a la prochaine etape
+4- Toujours sur le hubdocker cliquer sur le pseudo en haut a droite puis **_"Account settings"_** dans le bandeau de gauche **_"Security"_** puis **_"New acces token"_**, finallement copier le token qui servira a la prochaine etape
 
 5- Accèder au repot github puis au parametres de celui-ci, dans le bandeau de gauche dans la section securite cliquer sur "secrets and variables" puis Actions. Une page avec 2 onglets ("Secrets" et "Variables") s'ouvre.
 
 1.  **Creation des Secrets**:
 
-    1. Dans l'onglet _"secrets"_ cliquer sur _New repository secret_ nommer le premier secret `DOCKER_TOKEN`, puis coller votre token cree juste avant sur le hub docker dans la section "Secret\*"
+    1. Dans l'onglet **_"secrets"_** cliquer sur **_New repository secret_** nommer le premier secret `DOCKER_TOKEN`, puis coller votre token cree juste avant sur le hub docker dans la section "Secret\*"
     2. Recreer un nouveau secret et le nommer `DOCKER_USER`, entrer son pseudo hub docker en secret
 
 2.  **Creation des Variables**:
-    1. Acceder a l'onglet _"variable"_ puis cliquer sur _New repository variable_, nommer cette premiere variable `DOCKER_REPO` et entrer en valeur le nom du repot creer sur le hub docker lors de l'etape 3
+    1. Acceder a l'onglet **_"variable"_** puis cliquer sur **_New repository variable_**, nommer cette premiere variable `DOCKER_REPO` et entrer en valeur le nom du repot creer sur le hub docker lors de l'etape 3
     2. Creer une 2eme variable `IMAGE_FILE` laquelle contiendra le chemin du dockerfile de l'app si vous n'avez rien modifier entrez en valeur `docker-app/python/Dockerfile` si non entrez le nouveau chemin
     3. Creer une 3eme variable `IMAGE_OS` et entrez la valeur `ubuntu-latest` ou celle de votre choix, a savoir que le workflow est parametre pour du Debian, certaines modifications peuvent etre necessaire pour un autre OS.
     4. Creer ensuite une 4eme variable `ROBOT_FILE_NAME` et enregistrez y en valeur le nom du fichier robotframework, si vous ne l'avez pas modifie `machine.robot`
@@ -89,8 +89,8 @@ git commit -am "< entrer un commentaire de votre choix >"
 git push origin < nom de la branche cree a l'etape 6>
 ```
 
-9- Acceder au repot sur github, dans le bandeau du haut cliquer sur _"Pull requests"_ dans la nouvelle page cliquer sur _"New pull request"_ vous devriez alors voir afficher votre cicd selectionnez la github vous affiche alors les modification apporte, cliquer sur _"Create pull request"_, dans la page qui s'est ouverte vous pouvez entrer un commentaire qui est facultatif, cliquer a nouveau sur _"Create pull request"_ afin de creer la pull request a partir de votre branche cicd.
+9- Acceder au repot sur github, dans le bandeau du haut cliquer sur **_"Pull requests"_** dans la nouvelle page cliquer sur **_"New pull request"_** vous devriez alors voir afficher votre cicd selectionnez la github vous affiche alors les modification apporte, cliquer sur **_"Create pull request"_**, dans la page qui s'est ouverte vous pouvez entrer un commentaire qui est facultatif, cliquer a nouveau sur **_"Create pull request"_** afin de creer la pull request a partir de votre branche cicd.
 
-10- Le workflow ce lance et va proceder a l'enmsemble des tests et si tout ce deroule bien il lancera le build et le push de l'image docker. Pour voir votre workflow tourner vous pouvez cliquer le sur bouton _"Actions"_ sur le bandeau du haut.
+10- Le workflow ce lance et va proceder a l'enmsemble des tests et si tout ce deroule bien il lancera le build et le push de l'image docker. Pour voir votre workflow tourner vous pouvez cliquer le sur bouton **_"Actions"_** sur le bandeau du haut.
 
-11- Une fois que le workflow a fini de tourner et si tout c'est bien deroule vous vous pouvez retourner sur votre pull request, github devrait vous signaler que tout les test sont passe, il ne reste plus qu'a merge la pull request en cliquant sur le bouton _"Merge pull request"_, vous pouvez alors modifier le commentaire puis cliquer sur _"Confirm merge"_.
+11- Une fois que le workflow a fini de tourner et si tout c'est bien deroule vous vous pouvez retourner sur votre pull request, github devrait vous signaler que tout les test sont passe, il ne reste plus qu'a merge la pull request en cliquant sur le bouton **_"Merge pull request"_**, vous pouvez alors modifier le commentaire puis cliquer sur **_"Confirm merge"_**.

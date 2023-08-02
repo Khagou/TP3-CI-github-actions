@@ -59,8 +59,8 @@ git remote add origin < url de votre repot github >
 
 1.  **Creation des Secrets**:
 
-    . Dans l'onglet _"secrets"_ cliquer sur _New repository secret_ nommer le premier secret `DOCKER_TOKEN`, puis coller votre token cree juste avant sur le hub docker dans la section "Secret\*"
-    . Recreer un nouveau secret et le nommer `DOCKER_USER`, entrer son pseudo hub docker en secret
+    1. Dans l'onglet _"secrets"_ cliquer sur _New repository secret_ nommer le premier secret `DOCKER_TOKEN`, puis coller votre token cree juste avant sur le hub docker dans la section "Secret\*"
+    2. Recreer un nouveau secret et le nommer `DOCKER_USER`, entrer son pseudo hub docker en secret
 
 2.  **Creation des Variables**:
     1. Acceder a l'onglet _"variable"_ puis cliquer sur _New repository variable_, nommer cette premiere variable `DOCKER_REPO` et entrer en valeur le nom du repot creer sur le hub docker lors de l'etape 3

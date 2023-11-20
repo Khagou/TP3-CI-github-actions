@@ -2,7 +2,7 @@
 
 ## Contexte et composition du repot
 
-Il est demande de mettre en place une chaine d'integration contine pour une application Python. Aucun outils d'orchestration n'etant impose j'ai donc choisi Github action, celui-ci etant simple d'utilisation et directement integre a Github.
+Il est demande de mettre en place une chaine d'integration continue pour une application Python. Aucun outils d'orchestration n'etant impose j'ai donc choisi Github action, celui-ci etant simple d'utilisation et directement integre a Github.
 
 L'ensemble du repot permet de réaliser des tests et analyses sur l'application ainsi que les rapports pour:
 
